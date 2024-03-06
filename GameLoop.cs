@@ -12,26 +12,25 @@ namespace RockPaperCrossBlades
         public GameLoop() 
         {
             Random random = new Random();
-
-            Actions.Choice cpu = new Actions.Choice();
+            Player player = new Player();
+            Player computer = new Player();
             
+            int cpuNumber = random.Next(1,4);
+            string? playerChoiceString;
+
             bool isValidInput = false;
             bool playAgain = true;
-
-            string? playerChoiceString;
-            Player player = new Player();
-            int cpuNumber = random.Next(1,4);
 
             switch (cpuNumber)
             {
                 case 1:
-                    cpu = Actions.Choice.Rock;
+                    computer.Choice = Actions.Choice.Rock;
                     break;
                 case 2:
-                    cpu = Actions.Choice.Paper;
+                    computer.Choice = Actions.Choice.Paper;
                     break;
                 case 3:
-                    cpu = Actions.Choice.Crossblades;
+                    computer.Choice = Actions.Choice.Crossblades;
                     break;
             }
 
@@ -72,7 +71,7 @@ namespace RockPaperCrossBlades
 
             while (playAgain)
             {
-                Console.WriteLine(Prompt.WinLossTie(player.Choice, cpu));
+                Console.WriteLine(Prompt.WinLossTie(player.Choice, computer.Choice));
 
                 Console.WriteLine(Prompt.PlayAgain());
                 string? replay = Console.ReadLine();

@@ -16,7 +16,7 @@ namespace RockPaperCrossBlades
         {
             return "Play Again? Y / N";
         }
-        public static string WinLossTie(Actions.Choice player, Actions.Choice cpu)
+        public static string WinLossTie(Actions.Choice player, Actions.Choice computer)
         {
             if (player == Actions.Choice.Answer)
             {
@@ -28,21 +28,21 @@ namespace RockPaperCrossBlades
                 return "There was no contest due to indecision... You lose.";
             }
 
-            if (player == Actions.Choice.Rock && cpu == Actions.Choice.Crossblades ||
-                player == Actions.Choice.Paper && cpu == Actions.Choice.Rock || 
-                player == Actions.Choice.Crossblades && cpu == Actions.Choice.Paper)
+            if (player == Actions.Choice.Rock && computer == Actions.Choice.Crossblades ||
+                player == Actions.Choice.Paper && computer == Actions.Choice.Rock || 
+                player == Actions.Choice.Crossblades && computer == Actions.Choice.Paper)
             {
-                return $"You win! {player} beats {cpu}";
+                return $"You win! {player} beats {computer}";
             }
 
-            else if (player == cpu)
+            else if (player == computer)
             {
-                return $"Game was a tie. {player} is the same as {cpu}";
+                return $"Game was a tie. {player} is the same as {computer}";
             }
 
             else
             {
-                return $"You lost the game. {cpu} beats {player}";
+                return $"You lost the game. {computer} beats {player}";
             }
         }
         public static string Error()
